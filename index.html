@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT Deka Cahaya Gemilang — Zafi Group | Official Property &amp; Architecture</title>
+  <meta name="description" content="PT Deka Cahaya Gemilang bersama Zafi Project & Zafi Property. Pengembang perumahan modern, berkarakter, dan legalitas SHM terjamin di Pontianak & Kubu Raya.">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- GOOGLE FONTS: Editorial & Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- CDN Tailwind & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D97706',
+              goldLight: '#FBBF24',
+              goldBg: '#FEF3C7',
+              navy: '#0F172A',
+              surface: '#F8FAFC',
+              border: '#E2E8F0',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+            script: ['"Caveat"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::selection {
+      background-color: #FDE68A;
+      color: #78350F;
+    }
+    .modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(5px);
+    }
+
+    /* SHADCN UI COMPONENT TOKENS & UTILITIES (OFFICIAL SPEC) */
+    .btn-shadcn-default {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background-color: #0F172A;
+      color: #FFFFFF;
+      height: 3rem;
+      padding: 0 1.5rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    }
+    .btn-shadcn-default:hover {
+      background-color: #1E293B;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+    .btn-shadcn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid #E2E8F0;
+      background-color: #FFFFFF;
+      color: #0F172A;
+      height: 3rem;
+      padding: 0 1.5rem;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    .btn-shadcn-outline:hover {
+      background-color: #F8FAFC;
+      border-color: #CBD5E1;
+      transform: translateY(-1px);
+    }
+    .btn-shadcn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      background-color: #F59E0B;
+      color: #0F172A;
+      height: 3rem;
+      padding: 0 1.5rem;
+      box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.25);
+    }
+    .btn-shadcn-gold:hover {
+      background-color: #FBBF24;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.35);
+    }
+    .badge-shadcn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      border-radius: 9999px;
+      border: 1px solid;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ALRE SIGNATURE INTRO CURTAIN */
+    #introCurtain {
+      transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    #introCurtain.curtain-opened {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    /* LINE MASK REVEAL */
+    .mask-reveal-line {
+      overflow: hidden;
+      display: block;
+    }
+    .mask-reveal-line > span {
+      display: inline-block;
+      transform: translateY(115%);
+      opacity: 0;
+      transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+      will-change: transform, opacity;
+    }
+    .revealed .mask-reveal-line > span,
+    .reveal-active .mask-reveal-line > span {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* HERO IMAGE SCALE REVEAL */
+    .hero-scale-img {
+      transform: scale(1.12);
+      opacity: 0;
+      transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+      will-change: transform, opacity;
+    }
+    .hero-scale-img.reveal-active,
+    .reveal-active .hero-scale-img {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* STAGGERED FADE ITEMS */
+    .stagger-item {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .stagger-item.reveal-active,
+    .reveal-active .stagger-item,
+    .stagger-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* SPOTLIGHT 2x2 FOCUS GRID (IMAGE 2 - MONOCHROME TO FULL VIVID COLOR) */
+    .spotlight-group:hover .spotlight-item {
+      opacity: 0.45;
+      transition: opacity 0.4s ease;
+    }
+    .spotlight-group .spotlight-item:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px);
+    }
+    .spotlight-img {
+      filter: grayscale(100%) contrast(115%) brightness(0.75);
+      transition: filter 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: filter, transform;
+    }
+    .spotlight-item:hover .spotlight-img {
+      filter: grayscale(0%) contrast(105%) brightness(1);
+      transform: scale(1.06);
+    }
+    .spotlight-arrow {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    }
+    .spotlight-item:hover .spotlight-arrow {
+      transform: translate(3px, -3px);
+      color: #F59E0B;
+    }
+
+    /* ======================================================== */
+    /* ARCHITECTURAL HOVER: QUIET LUXURY ELEVATION & SOFT SHADOW */
+    /* (CLEAN, EDITORIAL & ANTI-MONOTONOUS)                     */
+    /* ======================================================== */
+    .hover-style-elevation {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.25rem;
+      cursor: pointer;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, box-shadow;
+    }
+    .hover-style-elevation:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px -15px rgba(15, 23, 42, 0.22);
+    }
+    .hover-style-elevation img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.6s ease;
+      will-change: filter;
+    }
+    .hover-style-elevation:hover img {
+      filter: contrast(106%) saturate(110%);
+    }
+    .hover-style-elevation .ambient-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.25rem 1.5rem;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, transparent 100%);
+      color: #FFFFFF;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .hover-style-elevation:hover .ambient-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased selection:bg-amber-200 selection:text-amber-900 overflow-x-hidden">
+
+  <!-- INTRO CURTAIN (ALRE CINEMATIC OPENING) -->
+  <div id="introCurtain" class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center">
+    <div class="text-center space-y-4 px-6">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-900 border border-slate-700/80 flex items-center justify-center p-3 shadow-2xl">
+        <img src="assets/logo.svg" alt="Zafi Group Logo" class="w-full h-full object-contain animate-pulse">
+      </div>
+      <div>
+        <div class="font-extrabold text-white text-lg sm:text-xl tracking-widest uppercase font-mono">
+          PT DEKA CAHAYA GEMILANG
+        </div>
+        <div class="text-xs font-semibold tracking-[0.25em] text-amber-400 uppercase mt-1 flex items-center justify-center gap-2">
+          <span>PROPERTY &amp; DEVELOPMENT • KALIMANTAN BARAT</span>
+        </div>
+      </div>
+      <div class="w-48 h-0.5 bg-slate-800 rounded-full mx-auto overflow-hidden mt-4">
+        <div id="introCurtainBar" class="h-full bg-amber-400 w-0 transition-all duration-700 ease-out"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION BAR (CLEAN CORPORATE HEADER) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO & CORPORATE IDENTITY -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-slate-900 flex items-center justify-center p-2 shadow-sm group-hover:scale-105 transition-transform">
+          <img src="assets/logo.svg" alt="Zafi Group Logo" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <div class="font-extrabold text-slate-900 text-lg sm:text-xl tracking-tight leading-tight group-hover:text-amber-600 transition-colors uppercase font-mono">
+            ZAFI GROUP
+          </div>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-600">
+        <a href="#proyek" class="hover:text-amber-600 transition-colors">Kawasan Perumahan</a>
+        <a href="#zafi-project" class="hover:text-amber-600 transition-colors">Zafi Project (Arsitektur)</a>
+        <a href="#keunggulan" class="hover:text-amber-600 transition-colors">Standar Mutu</a>
+        <a href="#manifesto" class="hover:text-amber-600 transition-colors">Filosofi</a>
+        <a href="#rekanan" class="hover:text-amber-600 transition-colors">Bank Rekanan</a>
+        <a href="#kontak" class="hover:text-amber-600 transition-colors">Kontak</a>
+      </nav>
+
+      <!-- MOBILE TOGGLE -->
+      <button id="mobileMenuBtn" aria-label="Buka Menu" class="lg:hidden p-2 text-slate-700 hover:text-amber-600">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- MOBILE MENU DRAWER -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-5 space-y-4 text-sm font-semibold text-slate-700">
+      <a href="#proyek" class="mobile-link block hover:text-amber-600">Kawasan Perumahan</a>
+      <a href="#zafi-project" class="mobile-link block hover:text-amber-600">Zafi Project (Arsitektur &amp; Interior)</a>
+      <a href="#keunggulan" class="mobile-link block hover:text-amber-600">Standar Mutu</a>
+      <a href="#manifesto" class="mobile-link block hover:text-amber-600">Filosofi</a>
+      <a href="#rekanan" class="mobile-link block hover:text-amber-600">Bank Rekanan</a>
+      <a href="#kontak" class="mobile-link block hover:text-amber-600">Hubungi Kami</a>
+      <a href="https://wa.me/6285119749661" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-lg text-xs uppercase tracking-wider">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>WhatsApp: 0851-1974-9661</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ======================================================== -->
+    <!-- HERO SECTION: ALRE ASYMMETRIC EDITORIAL LUXURY           -->
+    <!-- ======================================================== -->
+    <section class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 pt-16 pb-20 md:pt-24 md:pb-28 border-b border-slate-200 overflow-hidden">
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <div id="heroContent" class="lg:col-span-7 space-y-6">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.06]">
+              <span class="mask-reveal-line">
+                <span>Membangun Ruang.</span>
+              </span>
+              <span class="mask-reveal-line mt-1">
+                <span><span class="font-serif italic font-normal text-amber-600">Presisi</span> di Setiap Sudut.</span>
+              </span>
+            </h1>
+
+            <p class="stagger-item text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+              PT Deka Cahaya Gemilang bersama sinergi arsitektural Zafi Project menghadirkan portofolio kawasan hunian berkarakter di Pontianak &amp; Kubu Raya. Dirancang dengan presisi teknik dan legalitas 100% tuntas.
+            </p>
+
+            <div class="stagger-item flex flex-wrap items-center gap-3.5 pt-4">
+              <a href="#proyek" class="btn-shadcn-default">
+                <span>Eksplorasi Portofolio</span>
+                <i data-lucide="arrow-down-right" class="w-4 h-4 text-amber-400"></i>
+              </a>
+              <a href="https://wa.me/6285119749661" target="_blank" rel="noopener noreferrer" class="btn-shadcn-outline">
+                <i data-lucide="calendar" class="w-4 h-4 text-amber-600"></i>
+                <span>Jadwal Survey Lokasi</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- ASYMMETRIC PHOTOGRAPHIC FRAME WITH PONTINAK COORDINATES -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-300 bg-slate-900 group">
+              <img id="heroImage" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" alt="Zafi Residence Pontianak" class="hero-scale-img w-full h-[420px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 text-white flex items-end justify-between">
+                <div class="space-y-1">
+                  <span class="font-script text-2xl text-amber-400">Featured Masterplan</span>
+                  <div class="text-base font-bold text-white">Zafi Residence — Ayani 2</div>
+                  <div class="text-xs text-slate-300">10 Mnt Gaia Mall • One Gate Cluster</div>
+                </div>
+                <span class="text-xs font-mono font-bold text-amber-400">0°01' S 109°20' E</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- METRIK STRIP: ALRE KINETIC TYPOGRAPHY STRIP              -->
+    <!-- ======================================================== -->
+    <section class="py-12 bg-slate-900 text-white border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-800">
+          <div class="pt-4 sm:pt-0 sm:px-4 space-y-1">
+            <div class="font-mono text-4xl sm:text-6xl font-black text-white tracking-tighter">250<span class="text-amber-400">+</span></div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Total Unit Kawasan</div>
+            <p class="text-[11px] text-slate-500">Hunian terbangun &amp; terencana</p>
+          </div>
+          <div class="pt-4 sm:pt-0 sm:px-4 space-y-1">
+            <div class="font-mono text-4xl sm:text-6xl font-black text-amber-400 tracking-tighter">100<span class="text-white">%</span></div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">SHM &amp; Legalitas</div>
+            <p class="text-[11px] text-slate-500">Sertifikat pecah per kavling</p>
+          </div>
+          <div class="pt-4 sm:pt-0 sm:px-4 space-y-1">
+            <div class="font-mono text-4xl sm:text-6xl font-black text-white tracking-tighter">10.000<span class="text-amber-400">m²</span></div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Land Bank Terkelola</div>
+            <p class="text-[11px] text-slate-500">Kawasan strategis Pontianak</p>
+          </div>
+          <div class="pt-4 sm:pt-0 sm:px-4 space-y-1">
+            <div class="font-mono text-4xl sm:text-6xl font-black text-white tracking-tighter">5<span class="text-amber-400">+</span></div>
+            <div class="text-xs uppercase tracking-widest text-slate-400 font-bold">Masterplan Proyek</div>
+            <p class="text-[11px] text-slate-500">Residensial &amp; Komersil</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- 4 PILAR EKOSISTEM PENGEMBANGAN: SPOTLIGHT FOCUS GRID      -->
+    <!-- (KOMPONEN INTERAKTIF DARI REFERENSI GAMBAR 2)             -->
+    <!-- ======================================================== -->
+    <section id="keunggulan" class="py-24 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-6">
+          <div class="space-y-2">
+            <div class="text-xs font-mono uppercase tracking-[0.2em] text-amber-700 font-bold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>STANDAR EKOSISTEM PENGEMBANGAN</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+              4 Pilar Mutu &amp; Kepastian
+            </h2>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm max-w-md font-light">
+            Arahkan kursor pada kartu: foto bertransformasi dari monokrom menjadi warna penuh cahaya, sementara kartu lain meredup otomatis.
+          </p>
+        </div>
+
+        <!-- THE 2x2 SPOTLIGHT CONTAINER (EXACT MATCH TO IMAGE 2) -->
+        <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200">
+          <div class="spotlight-group grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <!-- CARD 1: PLAN -->
+            <div class="spotlight-item relative rounded-2xl overflow-hidden h-72 sm:h-80 shadow-md border border-slate-200 cursor-pointer bg-slate-900 group">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Plan" class="spotlight-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              
+              <!-- TOP RIGHT ARROW -->
+              <div class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                <i data-lucide="arrow-up-right" class="spotlight-arrow w-4 h-4"></i>
+              </div>
+
+              <!-- BOTTOM LABEL (MATCHING IMAGE 2 TYPOGRAPHY) -->
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <h4 class="text-2xl font-extrabold tracking-tight">Plan</h4>
+                <p class="text-xs text-slate-300 leading-relaxed font-light line-clamp-2">
+                  Kajian geoteknik tanah rawa/gambut Pontianak, elevasi bebas banjir, dan tata ruang RDTR resmi.
+                </p>
+              </div>
+            </div>
+
+            <!-- CARD 2: BUILD (SUNSET/WARM ILLUMINATION LIKE IMAGE 2) -->
+            <div class="spotlight-item relative rounded-2xl overflow-hidden h-72 sm:h-80 shadow-md border border-slate-200 cursor-pointer bg-slate-900 group">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Build" class="spotlight-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              
+              <!-- TOP RIGHT ARROW -->
+              <div class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                <i data-lucide="arrow-up-right" class="spotlight-arrow w-4 h-4"></i>
+              </div>
+
+              <!-- BOTTOM LABEL -->
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <h4 class="text-2xl font-extrabold tracking-tight">Build</h4>
+                <p class="text-xs text-slate-300 leading-relaxed font-light line-clamp-2">
+                  Pondasi cerucuk galam rapat anti-amblas, sloof beton bertulang kokoh, dan talang cor anti-bocor.
+                </p>
+              </div>
+            </div>
+
+            <!-- CARD 3: CONNECT -->
+            <div class="spotlight-item relative rounded-2xl overflow-hidden h-72 sm:h-80 shadow-md border border-slate-200 cursor-pointer bg-slate-900 group">
+              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Connect" class="spotlight-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              
+              <!-- TOP RIGHT ARROW -->
+              <div class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                <i data-lucide="arrow-up-right" class="spotlight-arrow w-4 h-4"></i>
+              </div>
+
+              <!-- BOTTOM LABEL -->
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <h4 class="text-2xl font-extrabold tracking-tight">Connect</h4>
+                <p class="text-xs text-slate-300 leading-relaxed font-light line-clamp-2">
+                  Akselerasi KPR didampingi penuh bersama Bank BTN Syariah &amp; BSI sampai akad dan notaris resmi.
+                </p>
+              </div>
+            </div>
+
+            <!-- CARD 4: DELIVER -->
+            <div class="spotlight-item relative rounded-2xl overflow-hidden h-72 sm:h-80 shadow-md border border-slate-200 cursor-pointer bg-slate-900 group">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Deliver" class="spotlight-img w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+              
+              <!-- TOP RIGHT ARROW -->
+              <div class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-900/60 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                <i data-lucide="arrow-up-right" class="spotlight-arrow w-4 h-4"></i>
+              </div>
+
+              <!-- BOTTOM LABEL -->
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <h4 class="text-2xl font-extrabold tracking-tight">Deliver</h4>
+                <p class="text-xs text-slate-300 leading-relaxed font-light line-clamp-2">
+                  Serah terima unit tepat waktu, legalitas SHM 100% aman, dan garansi pemeliharaan pasca akad.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PORTOFOLIO SHOWCASE: ALRE ASYMMETRIC ALTERNATING GRID    -->
+    <!-- ======================================================== -->
+    <section id="proyek" class="py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
+          <div class="space-y-2">
+            <div class="text-xs font-mono uppercase tracking-[0.25em] text-amber-700 font-bold">KATALOG PORTOFOLIO</div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Kawasan Hunian Pilihan
+            </h2>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm max-w-md">
+            Arsip proyek unggulan yang sedang aktif dikembangkan oleh PT Deka Cahaya Gemilang di Kalimantan Barat.
+          </p>
+        </div>
+
+        <div class="space-y-24">
+          
+          <!-- PROYEK 01: ZAFI RESIDENCE -->
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 relative group hover-style-elevation border border-slate-300 shadow-md bg-slate-900 cursor-pointer h-80 sm:h-[460px]">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Zafi Residence" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md text-amber-400 text-xs font-bold px-3.5 py-1.5 rounded-lg border border-slate-700">
+                Flagship Project • Ayani 2
+              </span>
+
+              <!-- AMBIENT SUBTLE 1-LINE CAPTION -->
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Zafi Residence — Parit Sembin Ayani 2</span>
+                <span class="font-mono text-amber-400 font-bold">TIPE 36 &amp; 45</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-5 relative">
+              <div class="text-7xl font-black text-slate-200 font-mono absolute -top-10 -left-2 -z-10 select-none">01</div>
+              <div class="text-xs font-mono uppercase tracking-widest text-amber-700 font-bold">
+                Residential Cluster
+              </div>
+              <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Zafi Residence</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                Konsep perumahan modern tropis di koridor emas Parit Sembin Ayani 2. Berada di sentra pertumbuhan Kubu Raya dengan akses 10 menit menuju Gaia Bumi Raya Mall.
+              </p>
+
+              <div class="py-4 border-y border-slate-200 text-xs space-y-2 text-slate-700">
+                <div class="flex justify-between"><span>Tipe Unit:</span><strong>36 Subsidi &amp; 45 Komersial</strong></div>
+                <div class="flex justify-between"><span>Status Sertifikat:</span><strong class="text-amber-700">SHM (Sertifikat Hak Milik)</strong></div>
+                <div class="flex justify-between"><span>Infrastruktur:</span><strong>Jalan Aspal 5M, Listrik 1300 VA</strong></div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Estimasi Mulai</div>
+                  <div class="text-lg font-black text-slate-900 font-mono">1 Juta-an/bln</div>
+                </div>
+                <button type="button" class="btn-detail btn-shadcn-default !px-5 !py-3"
+                        data-title="Zafi Residence" data-category="Residensial Modern" data-location="Parit Sembin, Ayani 2, Kubu Raya" data-units="90 Unit" data-types="Tipe 36 & 45" data-cert="SHM Terbit" data-desc="Cluster modern di koridor emas Ayani 2 dengan akses 10 menit ke Gaia Mall." data-img="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80">
+                  Lihat Spesifikasi &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROYEK 02: GRIYA AMANAH 2 RESIDENCE -->
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 space-y-5 relative order-2 lg:order-1">
+              <div class="text-7xl font-black text-slate-200 font-mono absolute -top-10 -left-2 -z-10 select-none">02</div>
+              <div class="text-xs font-mono uppercase tracking-widest text-amber-700 font-bold">
+                One Gate System
+              </div>
+              <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Griya Amanah 2 Residence</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                Cluster mandiri yang menawarkan ketenangan dan privasi maksimal. Dilengkapi bonus carport gratis dan struktur pondasi kokoh standar Zafi Project.
+              </p>
+
+              <div class="py-4 border-y border-slate-200 text-xs space-y-2 text-slate-700">
+                <div class="flex justify-between"><span>Keistimewaan:</span><strong>Free Carport &amp; One Gate System</strong></div>
+                <div class="flex justify-between"><span>Kapasitas Kawasan:</span><strong>70 Unit Kluster</strong></div>
+                <div class="flex justify-between"><span>Kesiapan:</span><strong class="text-emerald-700">Show Unit Ready Stock</strong></div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Skema Cicilan</div>
+                  <div class="text-lg font-black text-slate-900 font-mono">Mulai 1 Jt-an/bln</div>
+                </div>
+                <button type="button" class="btn-detail btn-shadcn-default !px-5 !py-3"
+                        data-title="Griya Amanah 2 Residence" data-category="Cluster Residensial" data-location="Pontianak Sekitar" data-units="70 Unit" data-types="Tipe 36 & 45" data-cert="SHM Terbit" data-desc="Cluster mandiri dengan sistem keamanan one gate dan bonus free carport." data-img="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80">
+                  Lihat Spesifikasi &rarr;
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 relative group hover-style-elevation border border-slate-300 shadow-md bg-slate-900 order-1 lg:order-2 cursor-pointer h-80 sm:h-[460px]">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80" alt="Griya Amanah 2" class="w-full h-full object-cover">
+              <span class="absolute top-4 right-4 z-20 bg-emerald-600 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow">
+                Show Unit Ready
+              </span>
+
+              <!-- AMBIENT SUBTLE 1-LINE CAPTION -->
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Griya Amanah 2 Residence — Pontianak Sekitar</span>
+                <span class="font-mono text-amber-400 font-bold">ONE GATE CLUSTER</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROYEK 03: KAHYANA RESIDENCE -->
+          <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 relative group hover-style-elevation border border-slate-300 shadow-md bg-slate-900 cursor-pointer h-80 sm:h-[460px]">
+              <img src="https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=1200&q=80" alt="Kahyana Residence" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-emerald-700 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow">
+                Subsidi Prioritas FLPP
+              </span>
+
+              <!-- AMBIENT SUBTLE 1-LINE CAPTION -->
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Kahyana Residence — Pontianak Barat</span>
+                <span class="font-mono text-amber-400 font-bold">101 UNIT RESMI</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-5 relative">
+              <div class="text-7xl font-black text-slate-200 font-mono absolute -top-10 -left-2 -z-10 select-none">03</div>
+              <div class="text-xs font-mono uppercase tracking-widest text-amber-700 font-bold">
+                First-Time Buyer
+              </div>
+              <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Kahyana Residence</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                Pilihan utama masyarakat untuk memiliki rumah pertama dengan cicilan flat ringan. Booking fee hanya Rp 500rb dan gratis biaya BPHTB + AJB balik nama.
+              </p>
+
+              <div class="py-4 border-y border-slate-200 text-xs space-y-2 text-slate-700">
+                <div class="flex justify-between"><span>Tipe Bangunan:</span><strong>Tipe 36 Plus</strong></div>
+                <div class="flex justify-between"><span>Booking Fee:</span><strong>Rp 500.000 (Refundable)</strong></div>
+                <div class="flex justify-between"><span>Biaya Notaris:</span><strong class="text-emerald-700">Gratis Ditanggung Developer</strong></div>
+              </div>
+
+              <div class="pt-2 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] text-slate-400 uppercase font-semibold">Harga Patokan Subsidi</div>
+                  <div class="text-lg font-black text-slate-900 font-mono">Rp 182.000.000</div>
+                </div>
+                <button type="button" class="btn-detail btn-shadcn-default !px-5 !py-3"
+                        data-title="Kahyana Residence" data-category="Subsidi Berkembang" data-location="Pontianak Kota / Sungai Beliung" data-units="101 Unit" data-types="Tipe 36 Plus" data-cert="SHM Terbit" data-desc="Program subsidi pemerintah dengan cicilan flat ringan dan bebas biaya notaris." data-img="https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=1000&q=80">
+                  Lihat Spesifikasi &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PORTOFOLIO ZAFI PROJECT: ARSITEKTUR, INTERIOR & KONSTRUKSI -->
+    <!-- ======================================================== -->
+    <section id="zafi-project" class="py-24 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200">
+          <div class="space-y-2">
+            <div class="text-xs font-mono uppercase tracking-[0.25em] text-amber-700 font-bold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span>STUDIO ARSITEKTUR &amp; RANCANG BANGUN</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+              Portofolio <span class="font-serif italic font-normal text-amber-600">Zafi Project</span>
+            </h2>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm max-w-md font-light">
+            Eksplorasi rancang bangun rumah impian, desain fasad kontemporer, optimalisasi ruang interior, dan pelaksanaan konstruksi presisi di Kalimantan Barat.
+          </p>
+        </div>
+
+        <!-- 6-ITEM EDITORIAL PORTFOLIO GRID (ALL USING GAYA 3 HOVER ELEVATION) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- ITEM 1: PRIVATE RESIDENCE PARIS 2 -->
+          <div class="space-y-3 group">
+            <div class="hover-style-elevation border border-slate-200 bg-slate-900 h-72 sm:h-80 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=80" alt="Private Residence Paris 2" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 text-amber-400 text-[10px] font-mono font-bold px-3 py-1 rounded-md border border-slate-700 uppercase">
+                Arsitektur &amp; Bangun
+              </span>
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Private Residence Paris 2</span>
+                <span class="font-mono text-amber-400 font-bold">RANCANG BANGUN 100%</span>
+              </div>
+            </div>
+            <div class="pt-1 flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Villa Tropis Paris 2</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Rumah Tinggal 2 Lantai • Pontianak Tenggara</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 font-bold">2026</span>
+            </div>
+          </div>
+
+          <!-- ITEM 2: BESPOKE INTERIOR AREA TANGGA -->
+          <div class="space-y-3 group">
+            <div class="hover-style-elevation border border-slate-200 bg-slate-900 h-72 sm:h-80 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80" alt="Interior Area Tangga" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 text-amber-400 text-[10px] font-mono font-bold px-3 py-1 rounded-md border border-slate-700 uppercase">
+                Interior Architecture
+              </span>
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Custom Storage Bawah Tangga</span>
+                <span class="font-mono text-amber-400 font-bold">BUILT-IN CABINETRY</span>
+              </div>
+            </div>
+            <div class="pt-1 flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Bespoke Interior &amp; Tangga</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Pemanfaatan Ruang Estetik • Hidden Storage</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 font-bold">2026</span>
+            </div>
+          </div>
+
+          <!-- ITEM 3: MASJID AL-A'RAAF MULIA -->
+          <div class="space-y-3 group">
+            <div class="hover-style-elevation border border-slate-200 bg-slate-900 h-72 sm:h-80 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=900&q=80" alt="Masjid Al-A'raaf Mulia" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 text-amber-400 text-[10px] font-mono font-bold px-3 py-1 rounded-md border border-slate-700 uppercase">
+                Bangunan Publik &amp; Religi
+              </span>
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Masjid Al-A'raaf Mulia</span>
+                <span class="font-mono text-amber-400 font-bold">SUNGAI RENGAS - PUNGGUR</span>
+              </div>
+            </div>
+            <div class="pt-1 flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Masjid Al-A'raaf Mulia</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Perencanaan Arsitektur &amp; Struktur Lengkung</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 font-bold">2026</span>
+            </div>
+          </div>
+
+          <!-- ITEM 4: MODERN MINIMALIST FASAD SERDAM -->
+          <div class="space-y-3 group">
+            <div class="hover-style-elevation border border-slate-200 bg-slate-900 h-72 sm:h-80 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80" alt="Desain Fasad Serdam" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 text-amber-400 text-[10px] font-mono font-bold px-3 py-1 rounded-md border border-slate-700 uppercase">
+                Desain Fasad 3D
+              </span>
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Fasad Minimalis Serdam</span>
+                <span class="font-mono text-amber-400 font-bold">DENAH &amp; GAMBAR KERJA</span>
+              </div>
+            </div>
+            <div class="pt-1 flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Fasad Kontemporer Serdam</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Rancang Bangun Rumah Pribadi • Kubu Raya</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 font-bold">2026</span>
+            </div>
+          </div>
+
+          <!-- ITEM 5: KAMAR MULTIFUNGSI ESTETIK -->
+          <div class="space-y-3 group">
+            <div class="hover-style-elevation border border-slate-200 bg-slate-900 h-72 sm:h-80 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=900&q=80" alt="Kamar Multifungsi" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 text-amber-400 text-[10px] font-mono font-bold px-3 py-1 rounded-md border border-slate-700 uppercase">
+                Space Optimization
+              </span>
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Kamar Anak Multifungsi</span>
+                <span class="font-mono text-amber-400 font-bold">COMPACT LIVING</span>
+              </div>
+            </div>
+            <div class="pt-1 flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Kamar Tidur Multifungsi</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Optimalisasi Ruang Sempit • Wardrobe Terpadu</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 font-bold">2026</span>
+            </div>
+          </div>
+
+          <!-- ITEM 6: COMMERCIAL BOUTIQUE & OFFICE LOUNGE -->
+          <div class="space-y-3 group">
+            <div class="hover-style-elevation border border-slate-200 bg-slate-900 h-72 sm:h-80 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80" alt="Commercial Boutique" class="w-full h-full object-cover">
+              <span class="absolute top-4 left-4 z-20 bg-slate-900/90 text-amber-400 text-[10px] font-mono font-bold px-3 py-1 rounded-md border border-slate-700 uppercase">
+                Komersial &amp; Usaha
+              </span>
+              <div class="ambient-caption flex items-center justify-between text-xs">
+                <span class="font-serif italic text-slate-200">Commercial Cafe &amp; Office Lounge</span>
+                <span class="font-mono text-amber-400 font-bold">PONTIANAK KOTA</span>
+              </div>
+            </div>
+            <div class="pt-1 flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base group-hover:text-amber-600 transition-colors">Boutique Commercial &amp; Lounge</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Fasad Kaca Terbuka • Tata Cahaya Modern</p>
+              </div>
+              <span class="text-[11px] font-mono text-slate-400 font-bold">2026</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CONSULTATION CALLOUT STRIP -->
+        <div class="rounded-2xl bg-white border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-1">
+            <span class="text-xs font-mono uppercase text-amber-700 font-bold">KONSULTASI ARSITEKTUR &amp; RENOVASI</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Punya Rencana Bangun Rumah Impian Sendiri?</h3>
+            <p class="text-xs sm:text-sm text-slate-500 max-w-xl font-light">
+              Mulai dari paket desain denah, gambar 3D fasad, hingga perhitungan Rencana Anggaran Biaya (RAB) akurat bersama tim arsitek Zafi Project.
+            </p>
+          </div>
+          <a href="https://wa.me/6285119749661?text=Halo%20Tim%20Arsitek%20Zafi%20Project,%20saya%20ingin%20konsultasi%20rancang%20bangun%20/%20renovasi%20rumah." target="_blank" rel="noopener noreferrer" class="btn-shadcn-default self-start md:self-auto shrink-0">
+            <i data-lucide="compass" class="w-4 h-4 text-amber-400"></i>
+            <span>Konsultasi Desain (WhatsApp)</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- MANIFESTO & STANDAR MUTU KONSTRUKSI (ALRE STYLE)        -->
+    <!-- ======================================================== -->
+    <section id="manifesto" class="py-20 bg-slate-900 text-white border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 space-y-6">
+            <div class="text-xs font-mono uppercase tracking-[0.25em] text-amber-400 font-bold">FILOSOFI MUTU</div>
+            <h2 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+              "Setiap sudut bangunan mencerminkan integritas perancangnya."
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+              Di PT Deka Cahaya Gemilang, kolaborasi dengan Zafi Project bukan sekadar membangun dinding dan atap. Kami memperhitungkan secara presisi daya dukung tanah rawa Kalimantan Barat, sistem anti-bocor berlapis, dan legalitas SHM yang mutlak aman bagi masa depan keluarga Anda.
+            </p>
+            <div class="pt-2 font-mono text-xs text-amber-400 uppercase tracking-widest flex items-center gap-3">
+              <span>NIB: 8120014262925</span>
+              <span>•</span>
+              <span>TERDAFTAR RESMI APSI</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Technical Blueprint Zafi Project" class="w-full h-80 sm:h-96 object-cover">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- BANK REKANAN (INSTITUTIONAL PARTNERSHIP)                -->
+    <!-- ======================================================== -->
+    <section id="rekanan" class="py-16 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <div>
+          <p class="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">
+            KEMITRAAN PERBANKAN RESMI
+          </p>
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">
+            Didukung Bank Terkemuka untuk Kemudahan Pembiayaan KPR
+          </h3>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-slate-700 font-bold text-sm sm:text-base">
+          <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <i data-lucide="building-2" class="w-5 h-5 text-amber-600"></i>
+            <span>Bank BTN / Syariah</span>
+          </div>
+          <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <i data-lucide="landmark" class="w-5 h-5 text-amber-600"></i>
+            <span>Bank Syariah Indonesia (BSI)</span>
+          </div>
+          <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <i data-lucide="wallet" class="w-5 h-5 text-amber-600"></i>
+            <span>Bank Mandiri</span>
+          </div>
+          <div class="flex items-center gap-2.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <i data-lucide="credit-card" class="w-5 h-5 text-amber-600"></i>
+            <span>Bank Kalbar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- KONTAK & KANTOR PEMASARAN RESMI                         -->
+    <!-- ======================================================== -->
+    <section id="kontak" class="py-20 bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12">
+          
+          <div class="lg:col-span-5 space-y-6">
+            <div class="text-xs font-mono uppercase tracking-[0.25em] text-amber-400 font-bold">KANTOR PEMASARAN</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              Informasi Resmi &amp; Konsultasi Proyek
+            </h2>
+            <p class="text-slate-400 text-sm leading-relaxed font-light">
+              Pintu kami terbuka untuk diskusi rencana survey lokasi, pengajuan brosur teknis, maupun koordinasi berkas KPR di Pontianak.
+            </p>
+
+            <div class="space-y-4 pt-4 text-xs sm:text-sm">
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-lg bg-slate-800 text-amber-400 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-white">Alamat Kantor Pemasaran</div>
+                  <div class="text-slate-400 mt-0.5">
+                    Jl. Pembangunan, Komplek Dalisa Permai 1 No. D 25, Sungai Beliung, Pontianak Barat, Kota Pontianak, Kalimantan Barat.
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-9 h-9 rounded-lg bg-slate-800 text-amber-400 flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="font-bold text-white">WhatsApp &amp; Layanan Resmi</div>
+                  <a href="https://wa.me/6285119749661" target="_blank" class="text-amber-400 font-mono hover:underline block mt-0.5">
+                    0851-1974-9661 / +62 878-4762-8400
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- SECURITY TRANSACTION NOTICE -->
+            <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700 text-xs text-slate-300 space-y-1">
+              <span class="text-amber-400 font-bold flex items-center gap-1.5">
+                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                Himbauan Keamanan Transaksi:
+              </span>
+              <p class="text-[11px] text-slate-400">
+                Seluruh pembayaran yang sah hanya ditujukan langsung ke rekening resmi perusahaan <strong>PT DEKA CAHAYA GEMILANG</strong>. Waspadai segala bentuk transfer ke rekening pribadi perorangan.
+              </p>
+            </div>
+          </div>
+
+          <!-- DIRECT INQUIRY FORM -->
+          <div class="lg:col-span-7">
+            <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-100">
+              <h3 class="text-xl font-bold text-slate-900 mb-1">Hubungkan Langsung ke WhatsApp Official</h3>
+              <p class="text-xs text-slate-500 mb-6">Isi formulir ringkas ini, tim kami akan merespons melalui WhatsApp resmi.</p>
+
+              <form id="portfolioInquiryForm" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nama Lengkap *</label>
+                  <input type="text" id="inqName" required placeholder="Nama Anda" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:border-amber-500 focus:outline-none">
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nomor WhatsApp *</label>
+                    <input type="tel" id="inqPhone" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:border-amber-500 focus:outline-none">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Pilihan Proyek *</label>
+                    <select id="inqProject" class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:border-amber-500 focus:outline-none font-medium">
+                      <option value="Zafi Residence (Ayani 2)">Zafi Residence (Ayani 2)</option>
+                      <option value="Griya Amanah 2 Residence">Griya Amanah 2 Residence</option>
+                      <option value="Kahyana Residence">Kahyana Residence</option>
+                      <option value="Konsultasi Seluruh Portofolio">Konsultasi Seluruh Portofolio</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Pesan / Rencana Survey</label>
+                  <textarea id="inqMessage" rows="3" placeholder="Contoh: Saya ingin menanyakan jadwal survey lokasi dan brosur unit..." class="w-full px-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg text-sm focus:border-amber-500 focus:outline-none"></textarea>
+                </div>
+
+                <button type="submit" class="btn-shadcn-gold w-full !h-12 !text-xs">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Kirim ke WhatsApp Official Marketing</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CORPORATE FOOTER -->
+  <footer class="bg-slate-950 text-slate-500 py-12 text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3 text-white font-extrabold text-sm">
+          <img src="assets/logo.svg" alt="Zafi" class="w-5 h-5">
+          <span>PT DEKA CAHAYA GEMILANG</span>
+        </div>
+        <div class="flex items-center gap-6 font-medium">
+          <a href="https://instagram.com/zafi.property" target="_blank" class="hover:text-amber-400 transition-colors">@zafi.property</a>
+          <a href="https://instagram.com/zafi.project" target="_blank" class="hover:text-amber-400 transition-colors">@zafi.project</a>
+          <a href="https://wa.me/6285119749661" target="_blank" class="hover:text-amber-400 transition-colors">0851-1974-9661</a>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] pt-4 border-t border-slate-800 text-slate-500">
+        <p>&copy; 2026 PT Deka Cahaya Gemilang. All rights reserved.</p>
+        <p>Architectural &amp; Development Standards by <strong class="text-slate-300">Zafi Group</strong>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DETAIL MODAL DIALOG (NATIVE VANILLA JS) -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative">
+      <button id="closeModal" aria-label="Tutup" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+      <div class="relative h-60 bg-slate-900">
+        <img id="modalImg" src="" alt="Detail" class="w-full h-full object-cover">
+        <div class="absolute bottom-4 left-4 right-4 text-white">
+          <span id="modalCat" class="bg-amber-500 text-slate-950 text-[10px] font-bold uppercase px-2 py-0.5 rounded font-mono"></span>
+          <h3 id="modalTitle" class="text-xl font-bold mt-1 text-white"></h3>
+        </div>
+      </div>
+      <div class="p-6 space-y-4 text-xs">
+        <p id="modalDesc" class="text-slate-600 leading-relaxed font-light"></p>
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div><span class="text-slate-400">Lokasi:</span> <strong id="modalLoc" class="text-slate-800"></strong></div>
+          <div><span class="text-slate-400">Tipe:</span> <strong id="modalTypes" class="text-slate-800"></strong></div>
+          <div><span class="text-slate-400">Legalitas:</span> <strong id="modalCert" class="text-amber-700"></strong></div>
+        </div>
+        <a id="btnModalWa" href="#" target="_blank" class="btn-shadcn-gold w-full !h-12 !text-xs">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Konsultasi Unit Ini via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/6285119749661?text=Halo%20PT%20Deka%20Cahaya%20Gemilang%20(Zafi%20Group),%20saya%20ingin%20konsultasi%20mengenai%20portofolio%20properti." target="_blank" rel="noopener noreferrer" aria-label="Hubungi WhatsApp" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-all hover:scale-105">
+    <i data-lucide="message-circle" class="w-5 h-5"></i>
+    <span class="text-xs font-bold uppercase tracking-wider hidden sm:inline">WhatsApp Official</span>
+  </a>
+
+  <!-- VANILLA JAVASCRIPT: CURTAIN & MODAL LOGIC -->
+  <script>
+    lucide.createIcons();
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    document.querySelectorAll('.mobile-link').forEach(l => {
+      l.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Opening Curtain & Reveal Coordinator
+    window.addEventListener('DOMContentLoaded', () => {
+      const curtain = document.getElementById('introCurtain');
+      const bar = document.getElementById('introCurtainBar');
+      const heroContent = document.getElementById('heroContent');
+      const heroImg = document.getElementById('heroImage');
+
+      if (bar) setTimeout(() => { bar.style.width = '100%'; }, 50);
+
+      setTimeout(() => {
+        if (curtain) curtain.classList.add('curtain-opened');
+        setTimeout(() => {
+          if (heroContent) heroContent.classList.add('reveal-active');
+          if (heroImg) heroImg.classList.add('reveal-active');
+        }, 150);
+        setTimeout(() => {
+          if (curtain) curtain.style.display = 'none';
+        }, 1000);
+      }, 700);
+    });
+
+    // Scroll Reveal Observer
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('revealed'));
+    }
+
+    // Modal dialog functionality
+    const modal = document.getElementById('detailModal');
+    const closeModal = document.getElementById('closeModal');
+    document.querySelectorAll('.btn-detail').forEach(b => {
+      b.addEventListener('click', () => {
+        const title = b.getAttribute('data-title');
+        const cat = b.getAttribute('data-category');
+        const loc = b.getAttribute('data-location');
+        const types = b.getAttribute('data-types');
+        const cert = b.getAttribute('data-cert');
+        const desc = b.getAttribute('data-desc');
+        const img = b.getAttribute('data-img');
+
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalCat').textContent = cat;
+        document.getElementById('modalLoc').textContent = loc;
+        document.getElementById('modalTypes').textContent = types;
+        document.getElementById('modalCert').textContent = cert;
+        document.getElementById('modalDesc').textContent = desc;
+        document.getElementById('modalImg').src = img;
+
+        const text = encodeURIComponent(`Halo PT Deka Cahaya Gemilang (Zafi Group),\nSaya tertarik dengan detail portofolio proyek: *${title}* (${loc}). Mohon informasi unit.`);
+        document.getElementById('btnModalWa').href = `https://wa.me/6285119749661?text=${text}`;
+
+        modal.classList.remove('hidden');
+      });
+    });
+    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+    // WhatsApp Inquiry Form
+    const inqForm = document.getElementById('portfolioInquiryForm');
+    inqForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('inqName').value.trim();
+      const phone = document.getElementById('inqPhone').value.trim();
+      const proj = document.getElementById('inqProject').value;
+      const msg = document.getElementById('inqMessage').value.trim();
+
+      const text = encodeURIComponent(
+        `Halo PT Deka Cahaya Gemilang (Zafi Group),\n` +
+        `Saya ingin menanyakan informasi portofolio perumahan:\n\n` +
+        `*Nama*: ${name}\n` +
+        `*No. WhatsApp*: ${phone}\n` +
+        `*Proyek Peminatan*: ${proj}\n` +
+        (msg ? `*Pesan/Catatan*: ${msg}\n\n` : `\n`) +
+        `Mohon dikirimkan brosur dan penjelasannya. Terima kasih.`
+      );
+
+      window.open(`https://wa.me/6285119749661?text=${text}`, '_blank');
+    });
+  </script>
+
+</body>
+</html>

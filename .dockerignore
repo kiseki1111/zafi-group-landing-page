@@ -1,0 +1,6 @@
+.git
+.gitignore
+*.md
+*.png
+test-*.js
+screenshot*.png
